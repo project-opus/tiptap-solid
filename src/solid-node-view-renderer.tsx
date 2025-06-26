@@ -83,7 +83,7 @@ class SolidNodeView extends NodeView<
       getPos: () => this.getPos(),
       updateAttributes: (attributes = {}) => this.updateAttributes(attributes),
       deleteNode: () => this.deleteNode(),
-    };
+    } as unknown as SolidNodeViewProps;
     const SolidNodeViewProvider: Component<{ state: SolidNodeViewProps }> = (
       props
     ) => {
@@ -150,7 +150,7 @@ class SolidNodeView extends NodeView<
 
       return this.options.update({
         oldNode,
-        oldDecorations,
+        oldDecorations: oldDecorations as Decoration[],
         newNode: node,
         newDecorations: decorations,
         updateProps: () => this.updateProps({ node, decorations }),
@@ -203,7 +203,7 @@ const SolidNodeViewRenderer = (
     const { renderers, setRenderers } = props.editor as SolidEditor;
 
     if (!renderers || !setRenderers) {
-      return {};
+      return {} as unknown as ProseMirrorNodeView;
     }
 
     return new SolidNodeView(

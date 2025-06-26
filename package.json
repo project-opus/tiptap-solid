@@ -3,26 +3,32 @@
   "version": "1.0.4",
   "description": "TipTap v2 integration for Solid.js",
   "type": "module",
+  "private": false,
+  "sideEffects": false,
   "scripts": {
-    "build": "rollup -c",
-    "prepublish": "pnpm build"
+    "build": "tsup",
+    "prepublish": "npm run build"
   },
   "source": "src/index.ts",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "exports": {
     ".": {
-      "solid": "./dist/esm/index.js",
-      "import": "./dist/esm/index.js",
-      "browser": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js",
-      "node": "./dist/cjs/index.js",
-      "types": "./dist/types/index.d.ts"
-    }
+      "types": "./dist/index.d.ts",
+      "solid": "./dist/index.jsx",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/*/index.d.ts",
+      "solid": "./dist/*/index.jsx",
+      "default": "./dist/*/index.js"
+    },
+    "./src/*": "./src/*"
   },
   "keywords": [
     "tiptap",
@@ -32,21 +38,21 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@tiptap/extension-bubble-menu": "2.5.9",
-    "@tiptap/extension-floating-menu": "2.5.9",
+    "@tiptap/extension-bubble-menu": "^2.22.3",
+    "@tiptap/extension-floating-menu": "^2.22.3",
     "nanoid": "^5.0.7"
   },
   "devDependencies": {
-    "@tiptap/core": "2.5.9",
-    "@tiptap/pm": "2.5.9",
-    "rollup": "^4.20.0",
-    "rollup-preset-solid": "^2.0.1",
+    "@tiptap/core": "^2.22.3",
+    "@tiptap/pm": "^2.22.3",
+    "esbuild-plugin-solid": "^0.6.0",
     "solid-js": "^1.8.20",
+    "tsup": "^8.5.0",
     "typescript": "^5.5.4"
   },
   "peerDependencies": {
-    "@tiptap/core": "2.5.9",
-    "@tiptap/pm": "2.5.9",
+    "@tiptap/core": "^2.22.3",
+    "@tiptap/pm": "^2.22.3",
     "solid-js": "^1.8.20"
   }
 }
