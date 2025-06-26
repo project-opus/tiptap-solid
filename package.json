@@ -1,5 +1,5 @@
 {
-  "name": "@vrite/tiptap-solid",
+  "name": "@opus/tiptap-solid",
   "version": "1.0.4",
   "description": "TipTap v2 integration for Solid.js",
   "type": "module",
