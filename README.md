@@ -1,13 +1,19 @@
 # TipTap-Solid
 
-TipTap integration with Solid.js, used in [Vrite](https://vrite.io)
+TipTap integration with Solid.js.
+
+Forked from [vriteio/tiptap-solid](https://github.com/vriteio/tiptap-solid) with the following adjustments:
+
+- Updated to latest TipTap v2 version
+- Switched rollup to tsup which uses esbuild backend
+- Switched to npm as the main package manager
 
 ## Installation
 
 Make sure to have peer-dependencies (`solid-js`, `@tiptap/core` and `@tiptap/pm`) already installed.
 
 ```
-npm i @vrite/tiptap-solid
+npm i https://github.com/project-opus/tiptap-solid
 ```
 
 ## Getting started
@@ -19,7 +25,7 @@ Here are some examples of common use-cases:
 ### Creating the editor
 
 ```javascript
-import { SolidEditorContent, useEditor } from "@vrite/tiptap-solid";
+import { SolidEditorContent, useEditor } from "@opus/tiptap-solid";
 
 // ...
 const editor = useEditor({
@@ -36,7 +42,7 @@ const editor = useEditor({
 ### Creating Solid-based Node Views
 
 ```javascript
-import { SolidNodeViewRenderer } from "@vrite/tiptap-solid";
+import { SolidNodeViewRenderer } from "@opus/tiptap-solid";
 
 const CustomNode = Node.create({
   // ...
@@ -50,7 +56,7 @@ const CustomNode = Node.create({
 In the `CustomNodeView` component, you can access the Node's state, including attributes, options, etc.
 
 ```javascript
-import { NodeViewWrapper, useSolidNodeView } from "@vrite/tiptap-solid";
+import { NodeViewWrapper, useSolidNodeView } from "@opus/tiptap-solid";
 
 const CustomNodeView = () => {
   const { state } = useSolidNodeView();

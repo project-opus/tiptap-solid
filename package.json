@@ -1,6 +1,6 @@
 {
   "name": "@opus/tiptap-solid",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "TipTap v2 integration for Solid.js",
   "type": "module",
   "private": false,
